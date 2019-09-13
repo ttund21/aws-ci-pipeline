@@ -3,5 +3,21 @@
   vars:
          ansible_python_interpreter: "/usr/bin/python3"
   tasks:
+    - name: Create mysql directory 
+      file:
+         path: /tmp/mysql
+         state: directory
+         mode: '0755'
+    - name: Create apache directory 
+      file:
+         path: /tmp/apache2
+         state: directory
+         mode: '0755'
     - name: copy docker-compose
-      copy: src=../docker/app/ dest=/tmp/
+      copy: src=../docker/app/docker-compose.yml dest=/tmp/docker-compose.yml
+   
+    - name: copy mysql-dockerfile
+      copy: src=../docker/app/mysql/Dockerfile dest=/tmp/mysql/Dockerfile
+   
+    - name: copy apache-dockerfile
+      copy: src=../docker/app/apache2/Dockerfile dest=/tmp/apache2/Dockerfile
