@@ -1,0 +1,23 @@
+---
+- hosts: all
+  
+  vars:
+         ansible_python_interpreter: "/usr/bin/python3"
+  
+  tasks:
+  
+      - name: Install docker
+        shell: curl -fsSL https://get.docker.com | sh
+        become: yes
+
+      - name: Install docker-compose
+        shell: curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+        become: yes
+
+      - name: Config docker-compose
+        shell: chmod +x /usr/local/bin/docker-compose
+        become: yes
+        
+      - name: Start service docker
+        shell: service docker start
+        become: yes
