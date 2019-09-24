@@ -17,7 +17,7 @@ pipeline {
                                     
                                     Copiando_git:{
                        
-                                     git url: 'https://github.com/marquescoder/pipeline-proj3.git'
+                                     git url: 'https://github.com/marquescode/aws-ci-pipeline.git'
 
                                             }
                                    
