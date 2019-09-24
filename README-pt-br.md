@@ -27,19 +27,19 @@ Siga o passo a passo da documentação oficial - https://docs.aws.amazon.com/pt_
 
 # Configurando o Jenkins
 - Após a instalação do servidor jenkins será necessários fazer alguns ajustes. Para que o jenkins acesse a aws é necessário salvar o access_key, secret_key e region em um arquivo chamado provider.tf, também é preciso salvar essas informaçções em váriavel e depois exportar-la para todo sistema operacional do servidor jenkins.
-- Faça acesso ssh a maquina do jenkins e crie o arquivo provider.tf no diretorio /var/lib/jenkins/workspaces/diretorio_projeto
+- Faça acesso ssh a maquina do jenkins e crie o arquivo provider.tf no diretorio /var/lib/jenkins/workspace/diretorio_projeto
 - Depois exporte as variaveis.
 
 - Arquivo provider.tf
 
 		provider "aws" {
   			access_key = "my_access_key"
-  			secret_key = "my_secrte_key"
+  			secret_key = "my_secret_key"
   			region     = "my_region"
 		}
 
 - Variveis	
-	- export aws_acces_key=my_acces_key
+	- export aws_acces_key=my_access_key
 	- export aws_region=my_region
 	- export aws_secret_key=my_secret_key
 		
