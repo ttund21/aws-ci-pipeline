@@ -49,4 +49,7 @@ Siga o passo a passo da documentação oficial - https://docs.aws.amazon.com/pt_
 	- Blue ocean (visualização do pipeline)
 	- Git plugin
 	- Terraform plugin
-	- Ansible	
+	- Ansible
+	
+
+O projeto original pode ser encontrado em https://github.com/projeto3/EC2-Docker-Xibo 
