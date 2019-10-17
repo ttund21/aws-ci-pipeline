@@ -29,6 +29,8 @@
     
     - name: copy docker-credentials
       copy: src=/home/ubuntu/.docker/config.json dest=/home/ubuntu/.docker/config.json
+
+
     
     
 
