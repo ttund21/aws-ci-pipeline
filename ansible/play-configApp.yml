@@ -23,7 +23,7 @@
       copy: src=../docker/app/apache2/Dockerfile dest=/tmp/apache2/Dockerfile
     
     - name: copy docker-credentials
-      copy: src=/home/ubuntu/.docker/.config.json dest=/home/ubuntu/.docker/.config.json
+      copy: src=/home/ubuntu/.docker/.config.json dest=/home/ubuntu/.docker/config.json
     
     
 
