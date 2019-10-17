@@ -1,3 +1,3 @@
 # Basics
-FROM carlosviniciusm/empresa_tcc:empresa_web
+FROM carlosviniciusm/vidacoleta-tcc:vidacoleta-web
 

@@ -1,3 +1,3 @@
 # Basics
-FROM carlosviniciusm/empresa_tcc:empresa_mysql
+FROM carlosviniciusm/vidacoleta-tcc:vidacoleta-mysql
 
