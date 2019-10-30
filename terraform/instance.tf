@@ -19,13 +19,7 @@ resource "aws_instance" "projeto3" {
   #aws_security_group = "sg-0b70b9d3a1ae3add6"
 
   user_data = file("${path.module}/user_data.sh")
-  tags = {
-    Name               = "DEV Teste Infraesturura Agil"
-    Projeto            = "Infraestrutura como codigo"
-    Curso              = "Redes de Computadores"
-    Materia            = "Projeto Integrador 3"
-    Gerente_do_Projeto = "Professor Pablo Menezes"
-  }
+  tags = var.dev_tags
 }
 
 output "aws_ip" {

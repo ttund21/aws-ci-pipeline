@@ -1,4 +1,10 @@
-#variable "key_path" {
- # description = "SSH Public Key path"
-  #default = "~/.ssh/id_rsa.pub"
- #  }
+variable "dev_tags" { 
+    type = "map" 
+    default = { 
+    Name               = "DEV Teste Infraesturura Agil_ APP2"
+    Projeto            = "Infraestrutura como codigo"
+    Curso              = "Redes de Computadores"
+    Materia            = "Projeto Integrador 3"
+    Gerente_do_Projeto = "Professor Pablo Menezes"
+  } 
+}
