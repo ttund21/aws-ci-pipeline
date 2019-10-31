@@ -41,12 +41,6 @@ resource "aws_security_group" "allow-ssh" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = {
-    Name               = "DEV Teste Infraesturura Agil"
-    Projeto            = "Infraestrutura como codigo"
-    Curso              = "Redes de Computadores"
-    Materia            = "Projeto Integrador 3"
-    Gerente_do_Projeto = "Professor Pablo Menezes"
-  }
+  tags = var.default_tags
 }
 

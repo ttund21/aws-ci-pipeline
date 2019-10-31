@@ -1,4 +1,4 @@
-variable "dev_tags" { 
+variable "default_tags" { 
     type = "map" 
     default = { 
     Name               = "DEV Teste Infraesturura Agil_ APP2"

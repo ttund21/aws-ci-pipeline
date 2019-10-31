@@ -14,7 +14,7 @@ resource "aws_instance" "projeto3_2" {
   #aws_security_group = "sg-0b70b9d3a1ae3add6"
 
   user_data = file("${path.module}/user_data.sh")
-  tags = var.dev_tags
+  tags = var.default_tags
 }
 
 output "aws_ip_2" {
