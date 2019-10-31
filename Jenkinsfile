@@ -65,8 +65,8 @@ pipeline {
                     sh 'sudo cp ../terraform/hosts .'
                     sh 'echo "Aguardando serviço ssh iniciar..."'
                     sh 'sleep 60'
-                    sh 'sudo ansible-playbook play-updateOS.yml -i hosts --private-key "/home/ubuntu/.ssh/projeto-pipeline.pem" -s -u ubuntu'
-                    sh 'sudo ansible-playbook play-installDocker.yml -i hosts --private-key "/home/ubuntu/.ssh/projeto-pipeline.pem" -s -u ubuntu'
+                    sh 'sudo ansible-playbook play-updateOS.yml -i hosts --private-key "/home/ubuntu/.ssh/projeto-pipeline.pem" -u ubuntu'
+                    sh 'sudo ansible-playbook play-installDocker.yml -i hosts --private-key "/home/ubuntu/.ssh/projeto-pipeline.pem" -u ubuntu'
                     
                 }
                 echo 'Config....'
@@ -77,8 +77,8 @@ pipeline {
 
             steps {
                 dir('ansible/'){
-                     sh 'sudo ansible-playbook play-configApp.yml -i hosts --private-key "/home/ubuntu/.ssh/projeto-pipeline.pem" -s -u ubuntu'
-                     sh 'sudo ansible-playbook play-deployApp.yml -i hosts --private-key "/home/ubuntu/.ssh/projeto-pipeline.pem" -s -u ubuntu'
+                     sh 'sudo ansible-playbook play-configApp.yml -i hosts --private-key "/home/ubuntu/.ssh/projeto-pipeline.pem" -u ubuntu'
+                     sh 'sudo ansible-playbook play-deployApp.yml -i hosts --private-key "/home/ubuntu/.ssh/projeto-pipeline.pem" -u ubuntu'
                 }
                 echo 'Deploying....'
             }
