@@ -111,6 +111,12 @@ pipeline {
                          expression { params.approvalMap == 'Aplicar em Produção' }
                     }
                      steps {
+                        dir('terraform/') {
+                        sh "cp ./vars.tf ./.vars-dev"
+                        sh "cp ./.vars-prod.txt ./vars.tf"
+                        sh "sudo terraform apply -auto-approve"
+                                             
+                    }
                         
                     echo 'I only execute on the Prod branch'
                }
