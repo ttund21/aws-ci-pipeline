@@ -1,7 +1,7 @@
 variable "default_tags" { 
     type = "map" 
     default = { 
-    Name               = "DEV Teste Infraesturura Agil_ APP2"
+    Name               = "DEV Test Environment"
     Projeto            = "Infraestrutura como codigo"
     Curso              = "Redes de Computadores"
     Materia            = "Projeto Integrador 3"
