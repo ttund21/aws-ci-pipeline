@@ -1,0 +1,28 @@
+Vagrant.configure("2") do |config|
+        config.ssh.forward_x11 = true
+        config.vm.box          = "centos/7"
+
+	config.vm.define "server" do |server|
+		server.vm.network "private_network", ip: "192.168.254.200"
+		server.vm.hostname = "server"
+                server.vm.provision "shell", inline: <<-SHELL
+                  sudo yum update -y
+                  sudo yum install epel-release vim wget tree -y
+                  sudo yum install python-pip -y
+                  sudo pip install --upgrade pip
+                  yes | sudo pip install ansible
+                  cp -rv /vagrant/Backup /home/vagrant
+                  chown -R vagrant:vagrant /home/vagrant/Backup
+                SHELL
+	end
+
+	config.vm.define "cobaia" do |cobaia|
+		cobaia.vm.network "private_network", ip: "192.168.254.201"
+		cobaia.vm.hostname = "cobaia"
+                cobaia.vm.provision "shell", inline: <<-SHELL
+                  sudo cp -v /vagrant/Templates/sshd_config /etc/ssh/sshd_config
+                  sudo chown vagrant:vagrant /etc/ssh/sshd_config
+                  sudo systemctl reload sshd
+                SHELL
+	end       
+end

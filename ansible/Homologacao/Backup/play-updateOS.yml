@@ -1,0 +1,22 @@
+--- 
+- 
+  hosts: all
+  tasks: 
+    - name: "Atualização de repo debian"
+      apt: 
+        update_cache: yes
+        force_apt_get: yes
+      become: yes
+      when: "ansible_os_family == \"Debian\""
+    - name: "Atualização debian"
+      apt: 
+        upgrade: dist
+        force_apt_get: yes
+      become: yes
+      when: "ansible_os_family == \"Debian\""
+    - 
+      name: "Atualização de repo redhat"
+      when: "ansible_os_family == \"RedHat\""
+      yum: "name=* state=latest"
+  vars: 
+    ansible_python_interpreter: /usr/bin/python3

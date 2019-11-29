@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  web:
+    image: empresa_web
+    hostname: "apache2"
+    container_name: 'empresa'
+    build: ./apache2
+    restart: 'always'
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - mysql
+  mysql:
+    image: empresa_mysql
+    hostname: "mysql:5.7"
+    container_name: 'empresa_mysql'
+    build: ./mysql
+    restart: 'always'
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: trainee_carlos
+      MYSQL_USER: vinicius
+      MYSQL_PASSWORD: 123456
+    
